@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import tmdb_client
+from flask import request
 
 app = Flask(__name__)
 
@@ -8,8 +9,6 @@ def utility_processor():
     def tmdb_image_url(path, size):
         return tmdb_client.get_poster_url(path, size)
     return {"tmdb_image_url": tmdb_image_url}
-
-from flask import request
 
 @app.route('/')
 def homepage():
@@ -23,10 +22,8 @@ def homepage():
                            current_list=selected_list, 
                            available_lists=available_lists)
 
-
 @app.route('/movie/<int:movie_id>')
 def movie_details(movie_id):
-    # Pobieramy szczegóły filmu i obsadę
     movie = tmdb_client.get_movie_details(movie_id)
     cast = tmdb_client.get_movie_cast(movie_id)
     return render_template("movie_details.html", movie=movie, cast=cast)

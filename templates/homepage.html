@@ -9,8 +9,6 @@
 <body>
     <div class="container">
         <h1 class="my-4 text-center">Movies Catalogue</h1>
-
-        <!-- Dynamic menu for selecting movie lists -->
         <div class="row">
             <div class="col-lg-12 mb-4">
                 {% for list_type in available_lists %}
@@ -21,8 +19,6 @@
                 {% endfor %}
             </div>
         </div>
-
-        <!-- Display movies -->
         <div class="row">
             {% for movie in movies %}
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
