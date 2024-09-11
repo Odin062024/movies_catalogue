@@ -9,12 +9,6 @@ def get_popular_movies():
     response = requests.get(endpoint, headers=headers)
     return response.json()
 
-# Uruchomienie funkcji i przypisanie wyniku
-movies_data = get_popular_movies()
-
-# Wyświetlenie zawartości
-print(movies_data)
-
-if __name__ == "__main__":
-    popular_movies = get_popular_movies()
-    print(popular_movies)
+def get_poster_url(poster_api_path, size="w342"):
+    base_url = "https://image.tmdb.org/t/p/"
+    return f"{base_url}{size}/{poster_api_path}"
